@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Inventory Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend client for the Inventory Management Application. It's a single-page application that interacts with the `inventory-backend` to handle user authentication and display a list of products.
 
-## Available Scripts
+##  Technologies Used
 
-In the project directory, you can run:
+  * **Framework:** React
+  * **Language:** JavaScript 
+  * **State Management:**  Context API.
+  * **Styling:**  CSS.
+  * **Networking:** Axios
+  * **Build Tool:** Vite / Create React App
 
-### `npm start`
+##  Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this frontend application, you will need the following installed on your machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  * **Node.js** (LTS version recommended)
+  * **npm** or **Yarn**
 
-### `npm test`
+## 🛠 Setup and Run Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to get the frontend running locally.
 
-### `npm run build`
+### 1\. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone this project to your local machine using the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/your-username/inventory-frontend.git
+cd inventory-frontend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2\. Install Dependencies
 
-### `npm run eject`
+Install all the required project dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+# or yarn install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3\. Configure the Backend API URL
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The frontend needs to know where your backend server is running.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  * Open the `src/api/axiosConfig.js` file.
+  * Ensure that the `baseURL` is set to the correct backend address. If you are running the backend locally, this will be:
+    ```javascript
+    const api = axios.create({
+      baseURL: 'http://localhost:8080',
+    });
+    ```
+  * You may also need to configure a `.env` file with the `REACT_APP_API_BASE_URL` variable if your project uses one.
 
-## Learn More
+### 4\. Run the Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the development server with the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+# or npm run dev (if using Vite)
+```
 
-### Code Splitting
+The application will open in your default browser at `http://localhost:3000` (or another port if configured). It will now be able to communicate with the `inventory-backend` (assuming the backend is running).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 5\. Authentication and Usage
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  * **Login/Register:** Use the `/login` or `/register` page to authenticate. A successful login will store a JWT token in local storage.
+  * **Access Protected Content:** The application will automatically use this stored token to make requests to protected routes on the backend, such as the `/products` page.
