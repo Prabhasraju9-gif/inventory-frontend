@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-//import './LoginPage.css'; // Assuming you have a CSS file for styling
+//import './LoginPage.css'; 
 
 function LoginPage() {
     // Change 'username' state to 'email'
