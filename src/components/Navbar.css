@@ -1,0 +1,62 @@
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+
+.navbar-nav a:hover {
+    color: #007bff;
+}
+
+.navbar-auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-auth span {
+    color: white;
+    font-size: 0.9em;
+}
+
+.navbar-auth .button-link {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none; /* For Link components */
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.navbar-auth .button-link:hover {
+    background-color: white;
+    color: #333;
+    border-color: #333;
+}
